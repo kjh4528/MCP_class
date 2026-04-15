@@ -1,12 +1,13 @@
-# 크롤링으로 데이터 수집해서 df형태로 저장, 웹에서 df 형태로 띄우기 실습
+# 배운 내용(requests,BeautifulSoup,streamlit) 모두 한 번에 활용해보기
+# 데이터 수집해서 데이터프레임으로 저장하고 웹에 df 표시하기
 
 import streamlit as st
 import requests
 import pandas as pd
 from bs4 import BeautifulSoup
 
-# 책 제목과 가격 데이터 수집
-url = "http://books.toscrape.com"
+# 데이터 수집(책의 제목, 가격)
+url = "http://books.toscrape.com/"
 res = requests.get(url)
 soup = BeautifulSoup(res.text, 'html.parser')
 books = soup.find_all('article', class_='product_pod')
